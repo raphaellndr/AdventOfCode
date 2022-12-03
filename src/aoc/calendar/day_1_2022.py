@@ -24,20 +24,23 @@ def calorie_counting(calorie_file: str):
         int_clean_calorie: list[list[int]] = [
             [int(cal) for cal in calorie_list] for calorie_list in clean_calorie
         ]
-        return max((sum(calories) for calories in int_clean_calorie))
+        return [sum(calories) for calories in int_clean_calorie]
 
 
 @day(name="01-12-2022")
-def day_one_of_2022(
+def day_1_2022(
     calorie_file: str = typer.Argument(..., help="Name of the file containing the data.")
 ) -> None:
     """Day one of 2022: Find the Elf carrying the most Calories.
 
     :param calorie_file: name of the file containing the data.
     """
-    result: int = calorie_counting(calorie_file)
-    print(result)
+    top_1: int = sorted(calorie_counting(calorie_file))[-1]
+    print(top_1)
+
+    total_top_3: int = sum(sorted(calorie_counting(calorie_file))[-3:])
+    print(total_top_3)
 
 
 if __name__ == "__main__":
-    typer.run(day_one_of_2022)
+    typer.run(day_1_2022)
