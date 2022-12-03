@@ -3,9 +3,9 @@
 Find the Elf carrying the most Calories. How many total Calories is that Elf carrying?
 """
 
-import typer
-
 from pathlib import Path
+
+import typer
 
 from aoc.calendar.registry import day
 
@@ -18,7 +18,7 @@ def calorie_counting(calorie_file: str):
     :param calorie_file: name of the file containing the calorie count.
     :return: greatest amount of calories in the file.
     """
-    with open(data_path / f"{calorie_file}.txt", mode="r") as data:
+    with open(data_path / f"{calorie_file}.txt", mode="r", encoding="utf-8") as data:
         split_calorie: list[str] = data.read().split("\n\n")
         clean_calorie: list[list[str]] = [calories.split("\n") for calories in split_calorie]
         int_clean_calorie: list[list[int]] = [
@@ -28,17 +28,16 @@ def calorie_counting(calorie_file: str):
 
 
 @day(name="01-12-2022")
-def day(
+def day_one_of_2022(
     calorie_file: str = typer.Argument(..., help="Name of the file containing the data.")
 ) -> None:
     """Day one of 2022: Find the Elf carrying the most Calories.
 
-    :param calorie_file:
-    :return:
+    :param calorie_file: name of the file containing the data.
     """
     result: int = calorie_counting(calorie_file)
     print(result)
 
 
 if __name__ == "__main__":
-    typer.run(calorie_counting)
+    typer.run(day_one_of_2022)

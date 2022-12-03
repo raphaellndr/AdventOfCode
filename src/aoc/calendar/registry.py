@@ -5,7 +5,7 @@ from typing import Callable, MutableMapping
 DAY_REGISTRY: MutableMapping[str, Callable] = {}
 
 
-def day(func: Callable = None, *, name: str = None) -> Callable:
+def day(func: Callable = None, *, name: str = None) -> Callable:  # type:ignore
     """
     :param func:
     :param name:
