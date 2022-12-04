@@ -30,7 +30,7 @@ def _common_item(items: list[set[str]]) -> str:
     return intersection
 
 
-def priorities(rucksacks_file: str, nb_elves: int):
+def priorities(rucksacks_file: str, nb_elves: int) -> int:
     """Returns the greatest amount of calories carried by an elf.
 
     :param rucksacks_file: name of the file containing the rucksacks.
