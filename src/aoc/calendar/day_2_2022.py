@@ -10,9 +10,9 @@ import typer
 
 from aoc.calendar.registry import day
 
-data_path = Path("C:/Users/Raphael/Programmation/python_projects/advent_of_code/data")
+DATA_PATH = Path("C:/Users/Raphael/Programmation/python_projects/advent_of_code/data")
 
-outcomes_1 = {
+OUTCOMES_1 = {
     "A X": 4,
     "A Y": 8,
     "A Z": 3,
@@ -23,7 +23,7 @@ outcomes_1 = {
     "C Y": 2,
     "C Z": 6,
 }
-outcomes_2 = {
+OUTCOMES_2 = {
     "A X": 3,
     "A Y": 4,
     "A Z": 8,
@@ -43,7 +43,7 @@ def score(strategy_guide: str, outcomes: Mapping[str, int]) -> int:
     :param outcomes: all possible outcomes.
     :return: greatest amount of calories in the file.
     """
-    with open(data_path / f"{strategy_guide}.txt", mode="r", encoding="utf-8") as data:
+    with open(DATA_PATH / f"{strategy_guide}.txt", mode="r", encoding="utf-8") as data:
         guide = list(data.read().strip().split("\n"))
 
         total_score: int = 0
@@ -62,10 +62,10 @@ def day_2_2022(
 
     :param strategy_guide: name of the file containing the data.
     """
-    result_part_1: int = score(strategy_guide, outcomes_1)
+    result_part_1: int = score(strategy_guide, OUTCOMES_1)
     print(result_part_1)
 
-    result_part_2: int = score(strategy_guide, outcomes_2)
+    result_part_2: int = score(strategy_guide, OUTCOMES_2)
     print(result_part_2)
 
 

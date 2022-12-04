@@ -9,7 +9,7 @@ import typer
 
 from aoc.calendar.registry import day
 
-data_path = Path("C:/Users/Raphael/Programmation/python_projects/advent_of_code/data")
+DATA_PATH = Path("C:/Users/Raphael/Programmation/python_projects/advent_of_code/data")
 
 
 def calorie_counting(calorie_file: str) -> list[int]:
@@ -18,7 +18,7 @@ def calorie_counting(calorie_file: str) -> list[int]:
     :param calorie_file: name of the file containing the calorie count.
     :return: greatest amount of calories in the file.
     """
-    with open(data_path / f"{calorie_file}.txt", mode="r", encoding="utf-8") as data:
+    with open(DATA_PATH / f"{calorie_file}.txt", mode="r", encoding="utf-8") as data:
         split_calorie: list[str] = data.read().split("\n\n")
         clean_calorie: list[list[str]] = [calories.split("\n") for calories in split_calorie]
         int_clean_calorie: list[list[int]] = [
