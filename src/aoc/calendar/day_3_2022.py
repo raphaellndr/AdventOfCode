@@ -15,7 +15,7 @@ DATA_PATH = Path("C:/Users/Raphael/Programmation/python_projects/advent_of_code/
 
 
 def _create_groups(rucksacks: list[str], nb_elves: int):
-    """Yields successive n-sized chunks from lst."""
+    """Yields successive n-sized chunks from given list."""
     for i in range(0, len(rucksacks), nb_elves):
         yield rucksacks[i : i + nb_elves]
 
