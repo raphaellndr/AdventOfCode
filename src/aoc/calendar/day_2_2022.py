@@ -36,7 +36,7 @@ outcomes_2 = {
 }
 
 
-def score(strategy_guide: str, outcomes: Mapping[str, int]):
+def score(strategy_guide: str, outcomes: Mapping[str, int]) -> int:
     """Returns the greatest amount of calories carried by an elf.
 
     :param strategy_guide: name of the file containing the encrypted strategy.

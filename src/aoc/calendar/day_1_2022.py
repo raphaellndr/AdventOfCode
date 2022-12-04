@@ -12,8 +12,8 @@ from aoc.calendar.registry import day
 data_path = Path("C:/Users/Raphael/Programmation/python_projects/advent_of_code/data")
 
 
-def calorie_counting(calorie_file: str):
-    """Returns the greatest amount of calories carried by an elf.
+def calorie_counting(calorie_file: str) -> list[int]:
+    """Returns the sum of the calorie carried for each elf.
 
     :param calorie_file: name of the file containing the calorie count.
     :return: greatest amount of calories in the file.
@@ -35,10 +35,11 @@ def day_1_2022(
 
     :param calorie_file: name of the file containing the data.
     """
-    top_1: int = sorted(calorie_counting(calorie_file))[-1]
+    sorted_calorie_sum: list[int] = sorted(calorie_counting(calorie_file))
+    top_1: int = sorted_calorie_sum[-1]
     print(top_1)
 
-    total_top_3: int = sum(sorted(calorie_counting(calorie_file))[-3:])
+    total_top_3: int = sum(sorted_calorie_sum[-3:])
     print(total_top_3)
 
 
